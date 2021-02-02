@@ -23,6 +23,7 @@ namespace Crypto
         public MainWindow()
         {
             InitializeComponent();
+            Console.WriteLine("Hello world !");
         }
     }
 }
