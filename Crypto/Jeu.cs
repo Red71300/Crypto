@@ -18,9 +18,19 @@ namespace Crypto
             }
         }
 
+        private Cryptage cryptage;
+        public Cryptage Cryptage
+        {
+            get
+            {
+                return this.cryptage;
+            }
+        }
+
         public Jeu()
         {
             this.cartes = new List<Carte>();
+            this.cryptage = new Cryptage();
             init();
         }
 

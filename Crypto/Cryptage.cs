@@ -9,6 +9,21 @@ namespace Crypto
     class Cryptage
     {
         private List<int> mesInt;//tableau contenant les valeurs numériques du message
+
+        //récupère les valeurs numériques du message sous forme de string
+        public string MesInt
+        {
+            get
+            {
+                string message = "132456789";
+                /*foreach (int entier in mesInt)
+                {
+                    message += entier;
+                }*/
+                return message;
+            }
+        }
+
         private List<int> cle;//tableau contenant les valeurs numériques de la clé
         private List<int> mesCryt;//tableau contenant les valeurs numérique du message crypté
         public Cryptage()
@@ -29,7 +44,10 @@ namespace Crypto
                 pour avoir une valeur conprise entre 1 et 26**/
                 int val = (int)b - 96;
                 //ON ajoute la valeur obtenu dans le tableau
-                mesInt.Add(val);
+
+                /************************************************************/
+                //mesInt.Add(val); PROBLEM HERE
+                /************************************************************/
             }
         }
 

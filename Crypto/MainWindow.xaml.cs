@@ -20,10 +20,18 @@ namespace Crypto
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Jeu jeu;
         public MainWindow()
         {
             InitializeComponent();
-            Jeu jeu = new Jeu();
+            jeu = new Jeu();
+        }
+
+        //évènement bouton chiffrement
+        private void button_chiffrer_Click(object sender, RoutedEventArgs e)
+        {
+            jeu.Cryptage.Message(message.Text);
+            message_chiffre.Text = jeu.Cryptage.MesInt;
         }
     }
 }
