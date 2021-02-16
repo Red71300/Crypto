@@ -44,6 +44,9 @@ namespace Crypto
             mesCryt = new List<int>();
             cle.Add(1);
             cle.Add(2);
+            cle.Add(18);
+            cle.Add(7);
+            cle.Add(9);
         }
         /// <summary>
         /// Permet de récupérer les valeurs numériques des lettres du message
@@ -71,9 +74,10 @@ namespace Crypto
         /// </summary>
         public void CrypterMessage()
         {
+            int boucle = 0;
             for (int i = 0; i < mesInt.Count; i++)
             {
-                int valT = mesInt[i] + cle[i];
+                int valT = mesInt[i] + cle[i - cle.Count*(int)Math.Truncate((Double)i/cle.Count)];//Permet de boucler sur la longueur de la clé
                 if (valT > 26)
                 {
                     valT = valT - 26;
