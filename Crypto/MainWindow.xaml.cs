@@ -33,5 +33,11 @@ namespace Crypto
             jeu.Cryptage.Message(message.Text);
             message_chiffre.Text = jeu.Cryptage.MesInt;
         }
+
+        private void btn_CryptageMessage_Click(object sender, RoutedEventArgs e)
+        {
+            jeu.Cryptage.CrypterMessage();
+            message_crypter_final_txt.Text = jeu.Cryptage.MessageCrypterString();
+        }
     }
 }

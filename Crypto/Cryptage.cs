@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Crypto
 {
@@ -15,26 +14,43 @@ namespace Crypto
         {
             get
             {
-                string message = "132456789";
-                /*foreach (int entier in mesInt)
+                string message = "";
+                foreach (int entier in mesInt)
                 {
                     message += entier;
-                }*/
+                }
                 return message;
             }
         }
 
         private List<int> cle;//tableau contenant les valeurs numériques de la clé
+        public string Cle
+        {
+            get
+            {
+                string message = "";
+                foreach (int entier in cle)
+                {
+                    message += entier;
+                }
+                return message;
+            }
+        }
         private List<int> mesCryt;//tableau contenant les valeurs numérique du message crypté
         public Cryptage()
         {
-
+            mesInt = new List<int>();
+            cle = new List<int>();
+            mesCryt = new List<int>();
+            cle.Add(1);
+            cle.Add(2);
         }
         /// <summary>
         /// Permet de récupérer les valeurs numériques des lettres du message
         /// </summary>
         public void Message(String message)
         {
+            mesInt.Clear();
             //On récupère les valeur en byte de chaque lettre du message
             byte[] ascii = Encoding.ASCII.GetBytes(message);
             //Pour chaque lettre
@@ -43,11 +59,8 @@ namespace Crypto
                 /**On convertit chaque byte en int et on enlève 97
                 pour avoir une valeur conprise entre 1 et 26**/
                 int val = (int)b - 96;
-                //ON ajoute la valeur obtenu dans le tableau
-
-                /************************************************************/
-                //mesInt.Add(val); PROBLEM HERE
-                /************************************************************/
+                //On ajoute la valeur obtenu dans le tableau
+                mesInt.Add(val);
             }
         }
 
@@ -58,10 +71,10 @@ namespace Crypto
         /// </summary>
         public void CrypterMessage()
         {
-            for(int i=0; i <= mesInt.Count; i++)
+            for (int i = 0; i < mesInt.Count; i++)
             {
                 int valT = mesInt[i] + cle[i];
-                if(valT > 26) 
+                if (valT > 26)
                 {
                     valT = valT - 26;
                 }
@@ -77,11 +90,13 @@ namespace Crypto
         public String MessageCrypterString()
         {
             String mes = "";
-            byte[] mesAscii = null;
+            byte[] mesAscii = new byte[mesCryt.Count];
+            int i = 0;
             foreach(int chr in mesCryt)
             {
                 byte val = (byte)(chr + 96);
-                mesAscii.Append(val);
+                mesAscii[i] = val;
+                i++;
             }
             mes = Encoding.ASCII.GetString(mesAscii);
             return mes;
