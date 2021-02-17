@@ -31,10 +31,11 @@ namespace Crypto
         {
             this.cartes = new List<Carte>();
             this.cryptage = new Cryptage();
-            init();
+            Init();
         }
 
-        public void init()
+        //initialise le paquet de cartes
+        public void Init()
         {
             string texte = File.ReadAllText("cartes.txt");
             string[] separateur = texte.Split('\n');
@@ -49,6 +50,39 @@ namespace Crypto
                 else
                     cartes.Add(new Carte(separateur[i], i+1));
             }
+        }
+
+        //mélange complet afin de déterminer la clé complète à l'aide du paquet de cartes
+        public void Melanger()
+        {
+            //recul du joker noir
+            //Move("Joker-noir", -1);
+            
+        }
+
+        //déplace une carte dans le paquet
+        public void Move(string nom, int nb)
+        {
+            int position = FindPosition(nom);
+            Carte carte = this.cartes[position];
+            this.cartes[position] = this.cartes[position - nb];
+            this.cartes[position - nb] = carte;
+        }
+
+        //récupère la position d'une carte dans le paquet
+        int FindPosition(string nom)
+        {
+            int position = 0;
+            int i = 0;
+            foreach(Carte carte in this.cartes)
+            {
+                if (carte.Nom == nom)
+                {
+                    position = i;
+                }
+                i++;
+            }
+            return position;
         }
     }
 }

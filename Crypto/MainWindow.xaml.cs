@@ -25,6 +25,7 @@ namespace Crypto
         {
             InitializeComponent();
             jeu = new Jeu();
+            jeu.Melanger();
         }
 
         //évènement bouton chiffrement

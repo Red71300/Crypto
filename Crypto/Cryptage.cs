@@ -23,6 +23,15 @@ namespace Crypto
             }
         }
 
+        private int taille = 0;//taille du message
+        public int Taille
+        {
+            get
+            {
+                return this.taille;
+            }
+        }
+
         private List<int> cle;//tableau contenant les valeurs numériques de la clé
         public string Cle
         {
@@ -54,6 +63,8 @@ namespace Crypto
         public void Message(String message)
         {
             mesInt.Clear();
+            cle.Clear();
+            mesCryt.Clear();
             //On récupère les valeur en byte de chaque lettre du message
             byte[] ascii = Encoding.ASCII.GetBytes(message);
             //Pour chaque lettre
@@ -65,12 +76,13 @@ namespace Crypto
                 //On ajoute la valeur obtenu dans le tableau
                 mesInt.Add(val);
             }
+            this.taille = mesInt.Count;
         }
 
         /// <summary>
-        /// Methode qui permet de cryter le message saisie à partir de
-        /// la valeur numérique des ses lettres ainsi que des valeur 
-        /// numérique des lettre de la clé
+        /// Methode qui permet de cryter le message saisi à partir de
+        /// la valeur numérique des ses lettres ainsi que des valeurs 
+        /// numériques des lettres de la clé
         /// </summary>
         public void CrypterMessage()
         {
