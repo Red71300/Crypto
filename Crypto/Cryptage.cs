@@ -87,7 +87,6 @@ namespace Crypto
         {
             for (int i = 0; i < mesInt.Count; i++)
             {
-                Console.WriteLine(cle.Count);
                 int valT = mesInt[i] + cle[i - cle.Count * (int)Math.Truncate((Decimal)i / cle.Count)];//Permet de boucler sur la longueur de la clé
                 if (valT > 26)
                 {
