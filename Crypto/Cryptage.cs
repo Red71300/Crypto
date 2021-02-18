@@ -63,7 +63,6 @@ namespace Crypto
         public void Message(String message)
         {
             mesInt.Clear();
-            cle.Clear();
             mesCryt.Clear();
             //On récupère les valeur en byte de chaque lettre du message
             byte[] ascii = Encoding.ASCII.GetBytes(message);
@@ -88,7 +87,8 @@ namespace Crypto
         {
             for (int i = 0; i < mesInt.Count; i++)
             {
-                int valT = mesInt[i] + cle[i - cle.Count*(int)Math.Truncate((Double)i/cle.Count)];//Permet de boucler sur la longueur de la clé
+                Console.WriteLine(cle.Count);
+                int valT = mesInt[i] + cle[i - cle.Count * (int)Math.Truncate((Decimal)i / cle.Count)];//Permet de boucler sur la longueur de la clé
                 if (valT > 26)
                 {
                     valT = valT - 26;
