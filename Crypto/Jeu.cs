@@ -27,6 +27,16 @@ namespace Crypto
             }
         }
 
+        private char[] alphabet = { 'a', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+        public char[] Alphabet
+        {
+            get
+            {
+                return alphabet;
+            }
+        }
+
+        private List<Char> cle = new List<Char>();
         public Jeu()
         {
             this.cartes = new List<Carte>();
@@ -55,9 +65,24 @@ namespace Crypto
         //mélange complet afin de déterminer la clé complète à l'aide du paquet de cartes
         public void Melanger()
         {
-            Move("Joker-noir", -1); //recul du joker noir
-            Move("Joker-rouge", -2); //recul du joker rouge
-            DoubleCoupe();
+            bool generation = false;
+            char lettre; //lettre chiffrée
+            this.cle.Clear();
+
+            /*while(!generation)
+            {
+                Move("Joker-noir", -1); //recul du joker noir
+                Move("Joker-rouge", -2); //recul du joker rouge
+                DoubleCoupe();
+                //this.cartes[53].Num = 3;
+                SimpleCoupe();
+                lettre = LireLettre();
+                if (lettre != 'X')
+                {
+                    this.cle.Add(lettre);
+                }
+                //int i = 3;
+            }*/
         }
 
         //déplace une carte dans le paquet
@@ -166,6 +191,53 @@ namespace Crypto
             {
                 this.cartes[i] = listeFinale[i];
             }
+        }
+
+        //coupe simple de la dernière carte
+        void SimpleCoupe()
+        {
+            Carte carte = this.cartes[this.cartes.Count - 1];
+            int nb = carte.Num;
+            List<Carte> listeFinale = new List<Carte>();
+
+            //on commence par remplir la liste avec les dernières cartes (sauf la dernière qui reste la dernière)
+            for (int i=nb; i<this.cartes.Count-1; i++)
+            {
+                listeFinale.Add(this.cartes[i]);
+            }
+            int nesrin = 1;
+            //on termine avec la coupe avec les nb premières cartes (en laissant la dernière à la fin)
+            for (int i=0; i<nb; i++)
+            {
+                listeFinale.Add(this.cartes[i]);
+            }
+            listeFinale.Add(carte); //on ajoute enfin la dernière
+
+            //set nouvel ordre
+            for (int i = 0; i < 54; i++)
+            {
+                this.cartes[i] = listeFinale[i];
+            }
+        }
+
+        char LireLettre()
+        {
+            int n = this.cartes[0].Num;
+            Carte carte = this.cartes[n];
+            int m = carte.Num;
+            char lettre = 'X';
+
+            //on vérifie qu'on n'est pas tombé sur un joker
+            if (m != 53)
+            {
+                //on vérifie si m dépasse 26
+                if (m > 26)
+                {
+                    m = m - 26;
+                }
+                lettre = alphabet[m];
+            }
+            return lettre;
         }
     }
 }

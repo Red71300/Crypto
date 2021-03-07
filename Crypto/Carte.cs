@@ -24,6 +24,10 @@ namespace Crypto
             {
                 return this.num;
             }
+            set
+            {
+                this.num = value;
+            }
         }
 
         public Carte(string nom, int num)
