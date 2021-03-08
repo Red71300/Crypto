@@ -74,14 +74,17 @@ namespace Crypto
                 Move("Joker-noir", -1); //recul du joker noir
                 Move("Joker-rouge", -2); //recul du joker rouge
                 DoubleCoupe();
-                //this.cartes[53].Num = 3;
+                this.cartes[53].Num = 4;
                 SimpleCoupe();
                 lettre = LireLettre();
                 if (lettre != 'X')
                 {
                     this.cle.Add(lettre);
+                    if (this.cle.Count >= 5)
+                    {
+                        generation = true;
+                    }
                 }
-                //int i = 3;
             }*/
         }
 
@@ -220,6 +223,7 @@ namespace Crypto
             }
         }
 
+        //dernière étape qui détermine la lettre
         char LireLettre()
         {
             int n = this.cartes[0].Num;
