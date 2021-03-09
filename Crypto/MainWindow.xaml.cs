@@ -25,8 +25,6 @@ namespace Crypto
         {
             InitializeComponent();
             jeu = new Jeu();
-            jeu.Melanger();
-            int i = 3;
         }
 
         //évènement bouton chiffrement
@@ -34,6 +32,8 @@ namespace Crypto
         {
             jeu.Cryptage.Message(message.Text);
             message_chiffre.Text = jeu.Cryptage.MesInt;
+            jeu.Melanger();
+            int i = 8;
         }
 
         private void btn_CryptageMessage_Click(object sender, RoutedEventArgs e)

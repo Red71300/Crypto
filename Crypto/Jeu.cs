@@ -27,8 +27,8 @@ namespace Crypto
             }
         }
 
-        private char[] alphabet = { 'a', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
-        public char[] Alphabet
+        private string[] alphabet = { "a", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
+        public string[] Alphabet
         {
             get
             {
@@ -36,7 +36,7 @@ namespace Crypto
             }
         }
 
-        private List<Char> cle = new List<Char>();
+        private List<String> cle = new List<String>();
         public Jeu()
         {
             this.cartes = new List<Carte>();
@@ -66,10 +66,10 @@ namespace Crypto
         public void Melanger()
         {
             bool generation = false;
-            char lettre; //lettre chiffrée
+            string lettre; //lettre chiffrée
             this.cle.Clear();
 
-            /*while(!generation)
+            while(!generation)
             {
                 Move("Joker-noir", -1); //recul du joker noir
                 Move("Joker-rouge", -2); //recul du joker rouge
@@ -77,15 +77,15 @@ namespace Crypto
                 this.cartes[53].Num = 4;
                 SimpleCoupe();
                 lettre = LireLettre();
-                if (lettre != 'X')
+                if (lettre != "X")
                 {
                     this.cle.Add(lettre);
-                    if (this.cle.Count >= 5)
+                    if (this.cle.Count >= this.Cryptage.Taille)
                     {
                         generation = true;
                     }
                 }
-            }*/
+            }
         }
 
         //déplace une carte dans le paquet
@@ -107,7 +107,7 @@ namespace Crypto
         }
 
         //récupère la position d'une carte dans le paquet
-        int FindPosition(string nom)
+        public int FindPosition(string nom)
         {
             int position = 0;
             int i = 0;
@@ -123,7 +123,7 @@ namespace Crypto
         }
 
         //double coupe des deux jokers
-        void DoubleCoupe()
+        public void DoubleCoupe()
         {
             int posJokerR = FindPosition("Joker-rouge");
             int posJokerN = FindPosition("Joker-noir");
@@ -197,7 +197,7 @@ namespace Crypto
         }
 
         //coupe simple de la dernière carte
-        void SimpleCoupe()
+        public void SimpleCoupe()
         {
             Carte carte = this.cartes[this.cartes.Count - 1];
             int nb = carte.Num;
@@ -208,7 +208,7 @@ namespace Crypto
             {
                 listeFinale.Add(this.cartes[i]);
             }
-            int nesrin = 1;
+
             //on termine avec la coupe avec les nb premières cartes (en laissant la dernière à la fin)
             for (int i=0; i<nb; i++)
             {
@@ -224,12 +224,12 @@ namespace Crypto
         }
 
         //dernière étape qui détermine la lettre
-        char LireLettre()
+        public String LireLettre()
         {
             int n = this.cartes[0].Num;
             Carte carte = this.cartes[n];
             int m = carte.Num;
-            char lettre = 'X';
+            string lettre = "X";
 
             //on vérifie qu'on n'est pas tombé sur un joker
             if (m != 53)
