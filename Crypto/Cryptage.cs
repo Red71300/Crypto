@@ -106,22 +106,21 @@ namespace Crypto
         public String MessageCrypterString()
         {
             String mes = "";
-            byte[] mesAscii = new byte[mesCrypt.Count];
-            int i = 0;
-            foreach(int chr in mesCrypt)
-            {
-                byte val = (byte)(chr + 96);
-                mesAscii[i] = val;
-                i++;
-            }
-            mes = Encoding.ASCII.GetString(mesAscii);
+            mes = ChaineAsciiCrypt(mesCrypt);
             return mes;
         }
 
+        /// <summary>
+        /// Nous partons du message crypter sous forme numérique pour retrouver le message d'origine
+        /// </summary>
+        /// <returns> Retourne le message décrypté </returns>
         public String MessageDecrypterString()
         {
             mesDecrypt.Clear();
             String mesD = "";
+
+            //On soustrait les valeurs du message crypté aux valeurs de la clé pour retrouvé les valeur
+            //du message d'origine
             for (int i = 0; i < mesCrypt.Count; i++)
             {
                 int valT = mesCrypt[i] - cle[i - cle.Count * (int)Math.Truncate((Decimal)i / cle.Count)];//Permet de boucler sur la longueur de la clé
@@ -131,16 +130,35 @@ namespace Crypto
                 }
                 mesDecrypt.Add(valT);
             }
-            byte[] mesAscii = new byte[mesDecrypt.Count];
-            int cpt = 0;
-            foreach (int chr in mesDecrypt)
+
+            //On récupère le message en String
+            mesD = ChaineAsciiCrypt(mesDecrypt);
+            return mesD;
+        }
+
+        /// <summary>
+        /// Permet d'obtenir les valeur en string du message en partant de leur valeur numérique
+        /// </summary>
+        /// <param name="mes"> Variable contenant le message a crypter ou décrypter </param>
+        /// <returns></returns>
+        public String ChaineAsciiCrypt(List<int> mes)
+        {
+            String mesF;
+            //On créé un tableau de byte qui va contenir les valeur en du message
+            //Le tableau est de la longueur du message
+            byte[] mesAscii = new byte[mes.Count];
+            //Entier qui permet de parcourir la totalité des valeurs du message
+            int i = 0;
+
+            //Pour chaque valeur int du message on récupère sa valeur ASCII en byte
+            foreach (int chr in mes)
             {
                 byte val = (byte)(chr + 96);
-                mesAscii[cpt] = val;
-                cpt++;
+                mesAscii[i] = val;
+                i++;
             }
-            mesD = Encoding.ASCII.GetString(mesAscii);
-            return mesD;
+            //On récupère le message sous forme de string en partant des valeurs ASCII
+            return mesF = Encoding.ASCII.GetString(mesAscii);
         }
 
         /// <summary>
