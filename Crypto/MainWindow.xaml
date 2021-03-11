@@ -15,6 +15,9 @@
         <Button x:Name="btn_CryptageMessage" Content="Crypter" HorizontalAlignment="Left" Margin="367,251,0,0" VerticalAlignment="Top" Width="75" Click="btn_CryptageMessage_Click"/>
         <TextBox x:Name="message_crypter_final_txt" HorizontalAlignment="Left" Height="23" Margin="185,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="518"/>
         <Label Content="Message crypté" HorizontalAlignment="Left" Margin="87,299,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnDécrypté" Content="Décrypter" HorizontalAlignment="Left" Margin="367,342,0,0" VerticalAlignment="Top" Width="75" Click="btnDécrypté_Click"/>
+        <Label x:Name="MessageDecrypt" Content="Message décrypté" HorizontalAlignment="Left" Margin="74,368,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="message_decrypter_txt" HorizontalAlignment="Left" Height="23" Margin="185,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="518"/>
 
     </Grid>
 </Window>

@@ -41,5 +41,10 @@ namespace Crypto
             jeu.Cryptage.CrypterMessage();
             message_crypter_final_txt.Text = jeu.Cryptage.MessageCrypterString();
         }
+
+        private void btnDécrypté_Click(object sender, RoutedEventArgs e)
+        {
+            message_decrypter_txt.Text = jeu.Cryptage.MessageDecrypterString();
+        }
     }
 }
