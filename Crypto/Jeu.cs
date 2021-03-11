@@ -83,6 +83,7 @@ namespace Crypto
                     if (this.cle.Count >= this.Cryptage.Taille)
                     {
                         generation = true;
+                        //this.cryptage.Cle = this.cle; A DECOMMENTER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     }
                 }
             }
