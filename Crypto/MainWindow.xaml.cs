@@ -30,14 +30,25 @@ namespace Crypto
         //évènement bouton chiffrement
         private void button_chiffrer_Click(object sender, RoutedEventArgs e)
         {
-            jeu.Cryptage.Message(message.Text);
-            message_chiffre.Text = jeu.Cryptage.MesInt;
-            jeu.Melanger();
-            cle.Text = jeu.Cle;
-            paquet.Text = "";
-            foreach(Carte carte in jeu.Cartes)
+            if (message.Text.Length > 1 && message.Text.All(char.IsLower) && !message.Text.Any(char.IsSymbol))
             {
-                paquet.Text += carte.Nom + "\n";
+                jeu.Cryptage.Message(message.Text);
+                message_chiffre.Text = jeu.Cryptage.MesInt;
+                jeu.Melanger();
+                cle.Text = jeu.Cle;
+                paquet.Text = "";
+                foreach (Carte carte in jeu.Cartes)
+                {
+                    paquet.Text += carte.Nom + "\n";
+                }
+            }
+            else
+            {
+                String message = "Veuillez ne pas mettre de message vide ou entrer uniqument " +
+                    "des lettres minuscules (Pas de maj, d'espace ou caractère spéciaux)";
+                String caption = "Message vide / Caractère non accepté";
+                MessageBoxButton buttons = MessageBoxButton.OK;
+                MessageBox.Show(message, caption, buttons);
             }
         }
 
