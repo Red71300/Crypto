@@ -7,17 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label Content="Message" HorizontalAlignment="Left" Margin="124,52,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="message" HorizontalAlignment="Left" Height="23" Margin="185,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="518"/>
-        <Button x:Name="button_chiffrer" Content="Chiffrer" HorizontalAlignment="Left" Margin="367,128,0,0" VerticalAlignment="Top" Width="75" Click="button_chiffrer_Click"/>
-        <TextBox x:Name="message_chiffre" HorizontalAlignment="Left" Height="23" Margin="185,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="518"/>
-        <Label Content="Message chiffré" HorizontalAlignment="Left" Margin="87,183,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btn_CryptageMessage" Content="Crypter" HorizontalAlignment="Left" Margin="367,251,0,0" VerticalAlignment="Top" Width="75" Click="btn_CryptageMessage_Click"/>
-        <TextBox x:Name="message_crypter_final_txt" HorizontalAlignment="Left" Height="23" Margin="185,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="518"/>
-        <Label Content="Message crypté" HorizontalAlignment="Left" Margin="87,299,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnDécrypté" Content="Décrypter" HorizontalAlignment="Left" Margin="367,342,0,0" VerticalAlignment="Top" Width="75" Click="btnDécrypté_Click"/>
-        <Label x:Name="MessageDecrypt" Content="Message décrypté" HorizontalAlignment="Left" Margin="74,368,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="message_decrypter_txt" HorizontalAlignment="Left" Height="23" Margin="185,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="518"/>
+        <Label Content="Message" HorizontalAlignment="Left" Margin="32,61,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="message" HorizontalAlignment="Left" Height="23" Margin="159,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Button x:Name="button_chiffrer" Content="Chiffrer" HorizontalAlignment="Left" Margin="229,113,0,0" VerticalAlignment="Top" Width="75" Click="button_chiffrer_Click" RenderTransformOrigin="-2.293,0.854"/>
+        <TextBox x:Name="message_chiffre" HorizontalAlignment="Left" Height="23" Margin="159,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Label Content="Message chiffré" HorizontalAlignment="Left" Margin="32,157,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn_CryptageMessage" Content="Crypter" HorizontalAlignment="Left" Margin="229,212,0,0" VerticalAlignment="Top" Width="75" Click="btn_CryptageMessage_Click"/>
+        <TextBox x:Name="message_crypter_final_txt" HorizontalAlignment="Left" Height="23" Margin="159,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Label Content="Message crypté" HorizontalAlignment="Left" Margin="32,260,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnDécrypté" Content="Décrypter" HorizontalAlignment="Left" Margin="229,311,0,0" VerticalAlignment="Top" Width="75" Click="btnDécrypté_Click"/>
+        <Label x:Name="MessageDecrypt" Content="Message décrypté" HorizontalAlignment="Left" Margin="32,353,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="message_decrypter_txt" HorizontalAlignment="Left" Height="23" Margin="159,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Label Content="Cryptographie&#xD;&#xA;" HorizontalAlignment="Left" Margin="264,-18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.969,0.016" FontWeight="Bold" FontSize="36" Height="69"/>
+        <GridSplitter HorizontalAlignment="Left" Height="378" Margin="397,42,0,0" VerticalAlignment="Top" Width="13" Background="#FF63637A"/>
+        <Label Content="Clé&#xD;&#xA;" HorizontalAlignment="Left" Margin="462,110,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="cle" HorizontalAlignment="Left" Height="23" Margin="531,114,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;&#xD;&#xA;" VerticalAlignment="Top" Width="224"/>
+        <TextBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" x:Name="paquet" HorizontalAlignment="Left" Height="147" Margin="531,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+        <Label Content="Paquet" HorizontalAlignment="Left" Margin="620,206,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

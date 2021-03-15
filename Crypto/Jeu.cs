@@ -37,6 +37,18 @@ namespace Crypto
         }
 
         private List<String> cle = new List<String>();
+        public string Cle
+        {
+            get
+            {
+                string key = "";
+                foreach (String nb in cle)
+                {
+                    key += nb;
+                }
+                return key;
+            }
+        }
         public Jeu()
         {
             this.cartes = new List<Carte>();
