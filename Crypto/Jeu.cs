@@ -89,9 +89,11 @@ namespace Crypto
                 this.cartes[53].Num = 4;
                 SimpleCoupe();
                 lettre = LireLettre();
+                //on vérifie si l'on est pas tombé sur un joker
                 if (lettre != "X")
                 {
-                    this.cle.Add(lettre);
+                    this.cle.Add(lettre); //on ajoute la lettre à la clef
+                    //on sort de la boucle lorsque la clef a atteint le mm nb de caractères que le msg
                     if (this.cle.Count >= this.Cryptage.Taille)
                     {
                         generation = true;
