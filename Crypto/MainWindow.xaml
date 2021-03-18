@@ -24,6 +24,11 @@
         <TextBox x:Name="cle" HorizontalAlignment="Left" Height="23" Margin="531,114,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;&#xD;&#xA;" VerticalAlignment="Top" Width="224"/>
         <TextBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" x:Name="paquet" HorizontalAlignment="Left" Height="147" Margin="531,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
         <Label Content="Paquet" HorizontalAlignment="Left" Margin="620,206,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnNoir" Content="ReculNoir" HorizontalAlignment="Left" Margin="432,232,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.115,-0.49" Click="btnNoir_Click"/>
+        <Button x:Name="btnRouge" Content="ReculRouge" HorizontalAlignment="Left" Margin="432,271,0,0" VerticalAlignment="Top" Width="75" Click="btnRouge_Click"/>
+        <Button x:Name="btnDoubleCoupe" Content="DoubleCoupe" HorizontalAlignment="Left" Margin="432,324,0,0" VerticalAlignment="Top" Width="75" Click="btnDoubleCoupe_Click"/>
+        <Button x:Name="btnCoupe" Content="SimpleCoupe" HorizontalAlignment="Left" Margin="432,360,0,0" VerticalAlignment="Top" Width="75" Click="btnCoupe_Click"/>
+        <Label Content="Tests" HorizontalAlignment="Left" Margin="454,201,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

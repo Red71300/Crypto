@@ -25,6 +25,10 @@ namespace Crypto
         {
             InitializeComponent();
             jeu = new Jeu();
+            foreach (Carte carte in jeu.Cartes)
+            {
+                paquet.Text += carte.Nom + "\n";
+            }
         }
 
         //évènement bouton chiffrement
@@ -61,6 +65,48 @@ namespace Crypto
         private void btnDécrypté_Click(object sender, RoutedEventArgs e)
         {
             message_decrypter_txt.Text = jeu.Cryptage.MessageDecrypterString();
+        }
+
+        //évènement pour tester le recul du joker noir
+        private void btnNoir_Click(object sender, RoutedEventArgs e)
+        {
+            jeu.Move("Joker-noir", -1);
+            paquet.Text = "";
+            foreach (Carte carte in jeu.Cartes)
+            {
+                paquet.Text += carte.Nom + "\n";
+            }
+        }
+
+        //évènement pour tester le recul du joker rouge
+        private void btnRouge_Click(object sender, RoutedEventArgs e)
+        {
+            jeu.Move("Joker-rouge", -2);
+            paquet.Text = "";
+            foreach (Carte carte in jeu.Cartes)
+            {
+                paquet.Text += carte.Nom + "\n";
+            }
+        }
+
+        private void btnDoubleCoupe_Click(object sender, RoutedEventArgs e)
+        {
+            jeu.DoubleCoupe();
+            paquet.Text = "";
+            foreach (Carte carte in jeu.Cartes)
+            {
+                paquet.Text += carte.Nom + "\n";
+            }
+        }
+
+        private void btnCoupe_Click(object sender, RoutedEventArgs e)
+        {
+            jeu.SimpleCoupe();
+            paquet.Text = "";
+            foreach (Carte carte in jeu.Cartes)
+            {
+                paquet.Text += carte.Nom + "\n";
+            }
         }
     }
 }
